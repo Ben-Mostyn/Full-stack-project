@@ -1,0 +1,23 @@
+# Node.js dependencies
+node_modules/
+dist/
+
+# Logs & system files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# Environment variables (do NOT push API keys!)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Build files
+build/
+out/
+.vscode/
+.idea/
