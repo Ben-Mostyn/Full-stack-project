@@ -1,21 +1,17 @@
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.up = function (knex) {
-    return knex.schema.createTable("Users", function (table) {
-        table.increments("id").primary();
-        table.string("username").notNullable().unique();
-        table.string("email").notNullable().unique();
-        table.string("password").notNullable();
-        table.timestamp("created_at").defaultTo(knex.fn.now());
-    });
-};
+module.exports = {
+    async up(knex) {
+        await knex.raw(`
+      CREATE TABLE Users (
+        id SERIAL PRIMARY KEY,
+        username VARCHAR(50) UNIQUE NOT NULL,
+        email VARCHAR(100) UNIQUE NOT NULL,
+        password TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      );
+    `);
+    },
 
-/**
- * @param { import("knex").Knex } knex
- * @returns { Promise<void> }
- */
-exports.down = function (knex) {
-    return knex.schema.dropTable("Users");
+    async down(knex) {
+        await knex.raw(`DROP TABLE IF EXISTS Users;`);
+    }
 };
