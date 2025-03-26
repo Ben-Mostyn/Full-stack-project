@@ -1,20 +1,20 @@
 
 export type UserType = {
-    userName: string,
+    username: string,
     id: number,
 }
 
 export const Users: UserType[] = [
     {
-        userName: 'Tony Stark',
+        username: 'Tony Stark',
         id: 1,
     },
     {
-        userName: 'Bruce Wayne',
+        username: 'Bruce Wayne',
         id: 2,
     },
     {
-        userName: 'Bruce Banner',
+        username: 'Bruce Banner',
         id: 3
     },
 ]
