@@ -1,6 +1,9 @@
 import db from "../../config/db";
-import { Users, UserType } from "./user-sampleData";
 const argon2 = require('argon2');
+require("dotenv").config();
+import jwt from "jsonwebtoken";
+
+
 
 export const userResolvers = {
     Query: {
@@ -51,6 +54,47 @@ export const userResolvers = {
                 const err = error as Error
                 console.log(err.message)
                 throw new Error('Failed to create User');
+            }
+        },
+        logInUser: async (_: any, { email, password }: { email: string, password: string }) => {
+            try {
+                const user = await db("users").where({ email }).first();
+                if (!user) {
+                    return {
+                        success: false,
+                        message: 'User not found'
+                    }
+                }
+
+                const isPasswordCorrect = await argon2.verify(user.password, password);
+                if (!isPasswordCorrect) {
+                    return {
+                        success: false,
+                        message: 'Wrong password'
+                    }
+                }
+
+                const secret = process.env.JWT_SECRET;
+                if (!secret) throw new Error("JWT_SECRET is not defined");
+
+                const token = jwt.sign(
+                    { id: user.id, username: user.username },
+                    secret,
+                    { expiresIn: "1h" }
+                )
+
+                const { password: _pw, ...safeUser } = user;
+
+
+                return {
+                    success: true,
+                    message: 'Login successful',
+                    token,
+                    user: safeUser,
+                }
+            } catch (err) {
+                const error = err as Error;
+                throw new Error("Failed to log in" + error.message)
             }
         }
     }
