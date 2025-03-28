@@ -25,3 +25,5 @@ const startServer = async () => {
 }
 
 startServer().catch(console.error)
+
+export default app;
