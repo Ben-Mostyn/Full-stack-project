@@ -1,13 +1,20 @@
-import SignUp from "./components/SignUp/SignUp"
-import Users from "./components/Users/User"
+import { useState } from "react"
+import SignUp from "./components/LoginSystem/SignUp/SignUp"
+import SignIn from "./components/LoginSystem/Signin/SignIn";
 
 
 function App() {
+  const [login, setLogin] = useState(false);
+
+  const handleClick = () => {
+    setLogin(!login);
+  }
 
   return (
     <>
       <h1>Hello</h1>
-      <SignUp />
+      {login ? <SignIn /> : <SignUp />}
+      <button onClick={handleClick}>{login ? <p>Sign Up</p> : <p>Login</p>}</button>
     </>
   )
 }
