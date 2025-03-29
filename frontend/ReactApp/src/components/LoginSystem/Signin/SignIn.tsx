@@ -23,7 +23,7 @@ const SignIn = () => {
     }
 
     return (
-        <div>
+        <div className="formContainer">
             {data?.logInUser?.user && <p>Welcome back {data.logInUser.user.username}</p>}
             {loading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}

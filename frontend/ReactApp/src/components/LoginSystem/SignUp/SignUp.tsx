@@ -23,7 +23,7 @@ const SignUp = () => {
         }
     }
     return (
-        <div>
+        <div className="formContainer">
             <h2>Sign Up</h2>
             {loading && <p>Loading...</p>}
             {error && <p >Error: {error.message}</p>}

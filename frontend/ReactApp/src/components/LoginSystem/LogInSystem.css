@@ -1,0 +1,35 @@
+.formContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LoginSystemContainer {
+    border: rgb(80, 80, 80) solid 2px;
+    width: 20%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 80%;
+}
+
+input {
+    width: 60%;
+    padding: .5rem;
+    margin: .5rem 0
+}
+
+.formSwitch {
+    width: 40%;
+}
