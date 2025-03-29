@@ -1,21 +1,14 @@
-import { useState } from "react"
-import SignUp from "./components/LoginSystem/SignUp/SignUp"
-import SignIn from "./components/LoginSystem/Signin/SignIn";
+import LoginSystem from "./components/LoginSystem/LoginSystem";
+import './App.css';
 
 
 function App() {
-  const [login, setLogin] = useState(false);
 
-  const handleClick = () => {
-    setLogin(!login);
-  }
 
   return (
-    <>
-      <h1>Hello</h1>
-      {login ? <SignIn /> : <SignUp />}
-      <button onClick={handleClick}>{login ? <p>Sign Up</p> : <p>Login</p>}</button>
-    </>
+    <div className="main">
+         <LoginSystem />
+    </div>
   )
 }
 
