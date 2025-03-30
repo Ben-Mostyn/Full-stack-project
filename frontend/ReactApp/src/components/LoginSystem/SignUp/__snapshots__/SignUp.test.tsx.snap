@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Sign up >  1`] = `
+<div>
+  <div
+    class="formContainer"
+  >
+    <h2>
+      Sign Up
+    </h2>
+    <form>
+      <input
+        name="username"
+        placeholder="username"
+        required=""
+        type="text"
+        value=""
+      />
+      <input
+        name="email"
+        placeholder="email"
+        required=""
+        type="text"
+        value=""
+      />
+      <input
+        name="password"
+        placeholder="password"
+        required=""
+        type="text"
+        value=""
+      />
+      <button
+        type="submit"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
+</div>
+`;
